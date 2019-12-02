@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+<body ng-app>
+    <div class="container"> 
+        <div class="form-group"> 
+            <br>       
+            <div class="card">
+                <h2>Videogame</h2>
+                <hr />
+                <img class="card-img-top"
+                    src="https://www.alfabetajuega.com/abj_public_files/multimedia/imagenes/201701/178021.alfabetajuega-wallpapers-2-200117.jpg"
+                    alt="videogame">
+                <div class="card-body">
+                    <h5 class="card-title">Videogame title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                        content. This content is a little bit longer.</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
+                            <li (click)="countStar(star)" [ngClass]="{'selected': (star <= selectedValue)}">
+                                <i class="fa fa-star"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <mat-chip-list>
+                    Tags:
+                    <mat-chip>Papadum</mat-chip>
+                    <mat-chip>Naan</mat-chip>
+                    <mat-chip>Dal</mat-chip>
+                </mat-chip-list>
+
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+                 <hr />
+                <div class="form-group">
+                    <h5 style="margin-left: 10px;">Leave a Replay</h5>
+                    <form ng-controller="Controller" [formGroup]="Controller">
+                        <textarea class="form-control" rows="5" ng-model="cmtName" placeholder="Your Comment" style="width: 600px; margin-left: 15px;"></textarea>
+                        <br />
+                        <button class="btn btn-success btn-md pull-right" style="margin-left: 20px;" ng-click='btn_post();'>Comment</button>
+                        <br />
+                        <hr />
+                        <h5 style="margin-left: 10px;">Comments</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item" style="margin-left: 20px;width: 600px;" ng-repeat="cmt in comments"> {{ cmt }}
+                                <a href="" ng-click="post_cmt($videogame)"><span class="glyphicon glyphicon-trash"
+                                        style="color:red; float:right;"></span></a>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+           
+
+            
+        </div>
+    </div>
+    <script type="text/javascript">
+        function Controller($scope) {
+            $scope.comments = [];
+            $scope.btn_post = function () {
+                if ($scope.cmtName != '') {
+                    $scope.comments.push($scope.cmtName);
+                    $scope.cmtName = "";
+                }
+            }
+            $scope.post_cmt = function ($videogame) {
+                $scope.comments.splice($videogame, 1);
+            }
+        }
+    </script>
+</body>

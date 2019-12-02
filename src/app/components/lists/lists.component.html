@@ -1,0 +1,39 @@
+<br>
+<button mat-button>
+    Add List
+    <mat-icon>playlist_add</mat-icon>
+</button>
+<br>
+
+<mat-nav-list>
+    <mat-list-item (click)="openVideogameDialog()">
+        <mat-icon matListIcon>favorite</mat-icon>
+        <h3 matLine>Favorites</h3>
+        <p matLine>Line 1</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item (click)="openVideogameDialog()">
+            <mat-icon matListIcon>visibility</mat-icon>
+            <h3 matLine href="javascript:void(0)">Viewed</h3>
+            <p matLine>Line 1</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item (click)="openVideogameDialog()">
+        <mat-icon matListIcon>watch_later</mat-icon>
+        <h3 matLine href="javascript:void(0)">Watch Later</h3>
+        <p matLine>Line 2</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item (click)="openVideogameDialog()">
+        <mat-icon matListIcon>thumb_down_alt</mat-icon>
+        <h3 matLine href="javascript:void(0)">Liked</h3>
+        <p matLine>Line 2</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item (click)="openVideogameDialog()">
+        <mat-icon matListIcon>thumb_up_alt</mat-icon>
+        <h3 matLine href="javascript:void(0)">Disliked</h3>
+        <p matLine>Line 2</p>
+    </mat-list-item>
+
+</mat-nav-list>

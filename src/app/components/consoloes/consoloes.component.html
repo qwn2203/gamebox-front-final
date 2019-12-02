@@ -1,0 +1,9 @@
+<h1>{{title}}</h1>
+
+<div class="consolas">
+<ul class="heroes">
+    <li *ngFor="let console of consoles" [class.selected]="console === selectedConsole" (click)="onSelect(console)">
+        <span class="badge">{{console.id}}</span> {{console.name}}
+    </li>
+</ul>
+</div>
